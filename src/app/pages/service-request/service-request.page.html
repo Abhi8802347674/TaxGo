@@ -1,0 +1,127 @@
+<ion-header [translucent]="true">
+    <ion-toolbar style="--background:#00b1b5;">
+        <ion-buttons slot="start" style="color: white;">
+            <ion-back-button defaultHref=""></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end" style="color: transparent;">
+            <ion-back-button defaultHref=""></ion-back-button>
+        </ion-buttons>
+        <ion-title style="text-align: center;color:white">TaxGo Service</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="dynamicForm" (ngSubmit)="saveForm()" novalidate>
+    <div *ngFor="let infoDetails of tableInfoMenuDetails" [ngSwitch]="infoDetails.FieldType">
+     
+      <div *ngSwitchCase="'Textbox'">
+        <p class="para">{{infoDetails.FieldName}}</p>
+        <ion-item lines="none" fill="outline" class="input-margin" >
+            <ion-input class="input" type="text" placeholder={{infoDetails.FieldName}} formControlName="{{infoDetails.FieldName}}"></ion-input>
+        </ion-item>
+        <div class="error-container">
+            <div class="error-message"
+              *ngIf="dynamicForm.controls[infoDetails.FieldName].touched &&
+              dynamicForm.controls[infoDetails.FieldName].dirty && dynamicForm.controls[infoDetails.FieldName].invalid">
+              <span validator-error>{{infoDetails.FieldName}} is required</span>
+            </div>
+          </div>
+    </div>
+    <div *ngSwitchCase="'Dropdown'">
+      <p class="para">{{infoDetails.FieldName}}</p>
+      <ion-item lines="none" fill="outline" class="input-margin">
+        <ion-select placeholder="Select {{infoDetails.FieldName}}" formControlName="{{infoDetails.FieldName}}">
+            <ion-select-option *ngFor="let Dropdownfield of infoDetails.FieldValueArray" value="{{Dropdownfield}}">{{Dropdownfield}}</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <div class="error-container">
+        <div class="error-message"
+          *ngIf="dynamicForm.controls[infoDetails.FieldName].touched &&
+          dynamicForm.controls[infoDetails.FieldName].dirty && dynamicForm.controls[infoDetails.FieldName].invalid">
+          <span validator-error>{{infoDetails.FieldName}} is required</span>
+        </div>
+      </div>
+  </div>
+  <div *ngSwitchCase="'SingleFile'">
+    <p class="para">{{infoDetails.FieldName}}</p>
+     <ion-item lines="none" fill="outline" class="input-margin">
+                    <ion-input type="text" placeholder={{infoDetails.FieldName}} [value]="getFileNameWithId(infoDetails.Id)"
+                    formControlName="{{infoDetails.FieldName}}" readonly="true"></ion-input>
+                    <ion-icon name="attach" (click)="chooseCameraOptions(infoDetails.Id,'singleFile')"></ion-icon>
+                    <ion-icon name="close" (click)="removeAttachmentSingleFile(infoDetails.Id)"></ion-icon>
+                </ion-item>
+                <div class="error-container">
+                    <div class="error-message"
+                      *ngIf="dynamicForm.controls[infoDetails.FieldName].touched &&
+                      dynamicForm.controls[infoDetails.FieldName].dirty && dynamicForm.controls[infoDetails.FieldName].invalid">
+                      <span validator-error>{{infoDetails.FieldName}} is required</span>
+                    </div>
+                  </div>
+     </div>
+    <div *ngSwitchCase="'MultiFiles'">
+      <p class="para">{{infoDetails.FieldName}}</p>
+      <ion-item lines="none" fill="outline" class="input-margin">
+          <ion-input type="text" placeholder={{infoDetails.FieldName}}  [value]="getMultiFileNameWithId(infoDetails.Id)" 
+          formControlName="{{infoDetails.FieldName}}" readonly="true"></ion-input>
+          <ion-icon name="attach" (click)="chooseCameraOptions(infoDetails.Id,'multiFiles')"></ion-icon>
+          <ion-icon name="close" (click)="removeAttachmentMultiFile(infoDetails.Id)"></ion-icon>
+      </ion-item>
+      <div class="error-container">
+        <div class="error-message"
+          *ngIf="dynamicForm.controls[infoDetails.FieldName].touched &&
+          dynamicForm.controls[infoDetails.FieldName].dirty && dynamicForm.controls[infoDetails.FieldName].invalid">
+          <span validator-error>{{infoDetails.FieldName}} is required</span>
+        </div>
+      </div>
+      <div *ngIf="dynamicForm.controls[infoDetails.FieldName]">
+        <ion-button> Add more </ion-button>
+      </div>
+ 
+    </div>
+    </div> 
+    <div style="text-align: center;padding-left: 15px;padding-bottom: 15px; padding-right: 15px;" *ngIf="tableInfoMenuDetails.length>0">
+      <ion-button class="button-verify" type="Submit" >Submit</ion-button>
+  </div>
+  </form>
+    <!-- <div *ngIf="tableInfoMenuDetails.length>0"> [disabled]="dynamicForm.invalid"
+        <div *ngFor="let infoDetails of tableInfoMenuDetails">
+            <div *ngIf="infoDetails.FieldType == 'Textbox'">
+                <p class="para">{{infoDetails.FieldName}}</p>
+                <ion-item lines="none" fill="outline" class="input-margin">
+                    <ion-input type="text" placeholder={{infoDetails.FieldName}}></ion-input>
+                </ion-item>
+            </div>
+
+            <div *ngIf="infoDetails.FieldType== 'Dropdown'">
+                <p class="para">{{infoDetails.FieldName}}</p>
+                <ion-item lines="none" fill="outline" class="input-margin">
+                    <ion-select placeholder="Select {{infoDetails.FieldName}}">
+                        <ion-select-option *ngFor="let Dropdownfield of infoDetails.FieldValueArray" value="{{Dropdownfield}}">{{Dropdownfield}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </div>
+
+            <div *ngIf="infoDetails.FieldType == 'SingleFile'">
+                <p class="para">{{infoDetails.FieldName}}</p>
+                <ion-item lines="none" fill="outline" class="input-margin">
+                    <ion-input type="text" placeholder={{infoDetails.FieldName}} [(ngModel)]="fileName" readonly="true"></ion-input>
+                    <ion-icon name="attach" (click)="chooseCameraOptions('singleFile')"></ion-icon>
+                    <ion-icon name="close" (click)="removeAttachmentSingleFile()"></ion-icon>
+                </ion-item>
+            </div>
+            <div *ngIf="infoDetails.FieldType == 'MultiFiles'">
+                <p class="para">{{infoDetails.FieldName}}</p>
+                <ion-item lines="none" fill="outline" class="input-margin">
+                    <ion-input type="text" placeholder={{infoDetails.FieldName}}  [(ngModel)]="MultiChoosefileName" readonly="true"></ion-input>
+                    <ion-icon name="attach" (click)="chooseCameraOptions('multiFiles')"></ion-icon>
+                    <ion-icon name="close" (click)="removeAttachment()"></ion-icon>
+                </ion-item>
+            </div>
+        </div>
+        <div style="text-align: center;padding-left: 15px;padding-bottom: 15px; padding-right: 15px;">
+            <ion-button class="button-verify" (click)="serviceRequest(tableInfoMenuDetails)">Submit</ion-button>
+        </div>
+    </div> -->
+</ion-content>
+

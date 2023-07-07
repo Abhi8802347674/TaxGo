@@ -1,0 +1,38 @@
+.button-has-icon-only.button-clear {
+    width: 39px;
+  }
+  
+  .home-page-toolbar,
+  .home-page-content {
+    --background: #3498DB;
+  }
+  
+  .home-page-toolbar {
+    .app-menu-toggle-button {
+        font-size: 28px;
+    }
+  
+    .header-button-icon {
+        width: 20px;
+  
+        &.logout-icon {
+            width: 15px;
+        }
+    }
+  }
+  .para{
+    margin-left: 5px;
+  }
+  .button-light{
+    margin-top: -30px;
+    font-size: 0.7rem;
+    margin-left: 0px;
+  }
+  
+  ion-content {
+    --background: linear-gradient( #00b1b5  23%, rgb(247 255 255) 20%);
+  }
+  .padding{
+    padding: 15px;
+    color: white
+  }

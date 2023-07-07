@@ -1,0 +1,31 @@
+
+<ion-content [fullscreen]="true" class="content-background header">
+  <ion-toolbar style="--background: transparent;">
+    <ion-buttons slot="end" style="color: rgb(228, 156, 79);">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start" style="color: rgb(19, 17, 17);margin-top: 20px; margin-left: 10px;">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+
+    
+  </ion-toolbar>
+  <ion-title> <div class="padding">
+    <p style="text-align: center;border-bottom: 1px black">FAQs</p>
+    
+  </div></ion-title>
+  <ion-accordion-group>
+    <ion-accordion  *ngFor="let FaqsArray of FaqsData">
+      <ion-item slot="header" color="light" style="--background:none" class="item-background-color">
+        <p>{{FaqsArray.FieldName}}</p>
+      </ion-item>
+      <div class="ion-padding" style="color: grey;font-size: 0.9rem;" slot="content">{{FaqsArray.FieldValue}}</div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <!-- <div *ngFor="let FaqsArray of FaqsData">
+    <p>{{FaqsArray.FieldName}}</p>
+    <p>{{FaqsArray.FieldValue}}</p>
+  </div> -->
+
+</ion-content>

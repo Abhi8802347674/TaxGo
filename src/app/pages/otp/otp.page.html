@@ -1,0 +1,25 @@
+
+<ion-content [fullscreen]="true">
+  <ion-toolbar style="--background: transparent;">
+    <ion-buttons slot="start" style="color: rgb(19, 17, 17);margin-top: 20px; margin-left: 10px;">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+ <div style="padding: 15px;">
+  <p class="para-header"> Sign In</p>
+  <p style="padding-left: 15px;padding-right: 15px;font-size: 0.8rem;"> We've sent an SMS with an activation code to your phone number <span><strong>{{'+91'+registeredMobileNo}}</strong></span></p>
+ </div>
+  <div style="text-align: center;">
+    <ng-otp-input  (onInputChange)="oninputChange($event)" [config]="{length:6, inputStyles: {
+      width: '42px',
+      height: '42px',
+    }}"  class="otp-input">
+    </ng-otp-input>
+  </div>
+  <div style="text-align: center;">
+    <ion-button class="button-verify" (click)="verifyOTP()" [disabled]="EnteredOTP.length<6" >Verify OTP</ion-button>
+    <p style="font-size: 0.8rem;margin-bottom: -8px;">By clicking an account or signing you agree to our </p>
+    <p><span style="color: rgb(6, 198, 198); text-align: center;font-size: 0.8rem;display: grid;">terms and condition</span></p>
+  </div>
+  
+</ion-content>

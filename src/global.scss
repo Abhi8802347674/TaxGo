@@ -1,0 +1,68 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+.content-background {
+    --background: rgb(239 252 251);
+}
+.native-wrapper.sc-ion-input-md {
+   
+    margin-left: 5px;
+}
+
+ion-accordion.accordion-expanding ion-item,
+ion-accordion.accordion-expanded ion-item[slot="header"] {
+  color: red !important;
+}
+ 
+
+.input{
+  height: 40px;
+  }
+  ion-item{
+    height: 70px;
+  }
+  .item-inner {
+    margin: 0px;
+    padding-inline-start: var(--inner-padding-start);
+    padding-inline-end: calc(var(--ion-safe-area-right, 0px) + var(--inner-padding-end));
+    padding-top: var(--inner-padding-top);
+    padding-bottom: var(--inner-padding-bottom);
+    display: flex;
+    position: relative;
+    flex: 1 1 0%;
+    flex-direction: inherit;
+    align-items: inherit;
+    align-self: stretch;
+    min-height: inherit;
+    border-width: var(--inner-border-width);
+    border-style: var(--border-style);
+    border-color: var(--border-color);
+    box-shadow: var(--inner-box-shadow);
+    overflow: inherit;
+    box-sizing: border-box;
+    height: 40px;
+}

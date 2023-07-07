@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true">
+  <ion-toolbar style="--background: transparent;">
+    <ion-buttons slot="start" style="color: rgb(19, 17, 17);margin-top: 20px; margin-left: 10px;">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <form [formGroup]="loginForm" >
+  <div style="text-align: center;">
+    <p style="font-size: 1.5rem !important;"><b>Login</b></p>
+  </div>
+
+  <p class="para">Enter User Id</p>
+  <ion-item lines="none" fill="outline"   class="input-margin">
+    <ion-input  type="email" formControlName="email" placeholder="Enter User Id"></ion-input>
+  </ion-item>
+  <div class="error-container">
+    <div class="error-message"
+      *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">
+      <span validator-error>Please Enter valid email address</span>
+    </div>
+  </div>
+  <p class="para">Enter Password</p>
+  <ion-item lines="none" fill="outline"   class="input-margin">
+    <ion-input  type="Password" formControlName="password" placeholder="Enter Password"></ion-input>
+  </ion-item>
+  <div class="error-container">
+    <div class="error-message"
+      *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">
+      <span validator-error>Please Enter Valid Password</span>
+    </div>
+  </div>
+
+  <div style="text-align: center;padding-left: 15px; padding-right: 15px;">
+    <ion-button class="button-verify" [disabled]="!loginForm.valid" (click)="login()">Login</ion-button>
+  </div>
+  <ion-row>
+    <ion-col style="padding-right:15px;padding-left:15px;padding-top:15px ">
+      <ion-button (click)="registerUser()" expand="block" color="primary" fill="outline"
+        class="ion-no-margin ion-margin-bottom sign-up-button">
+        Don't have an account? &nbsp;<span
+          class="sign-up-label">Sign up</span>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</form>
+</ion-content>

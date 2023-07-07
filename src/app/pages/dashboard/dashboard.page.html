@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-toolbar style="--background: transparent;">
+    <ion-buttons slot="start" style="color: rgb(19, 17, 17);margin-top: 20px; margin-left: 10px;">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar> -->
+  
+ 
+  <div style="text-align: center;">
+    <p style="font-size: 1.5rem !important;"><b> Welcome To TaxGo dashboard</b></p>
+  </div>
+  <p class="para">Enter Mobile</p>
+  <ion-item lines="none" fill="outline"  class="input-margin">
+    <ion-input  type="number"   placeholder="Enter Mobile No"></ion-input>
+  </ion-item>
+  <!-- <div class="error-container">
+    <div class="error-message"
+      *ngIf="registerForm.hasError('maxlength', 'MobileNo') && registerForm.controls['MobileNo'].touched &&
+      registerForm.controls['MobileNo'].dirty && registerForm.controls['MobileNo'].invalid">
+      <span validator-error>Mobile No cannot be more than 10 characters long.</span>
+    </div>
+  </div> -->
+  <p class="para">dropdown value</p>
+  <ion-item lines="none" fill="outline"   class="input-margin">
+   <ion-select>
+    <ion-select-option>1</ion-select-option>
+    <ion-select-option>1</ion-select-option>
+    <ion-select-option>1</ion-select-option>
+    <ion-select-option>1</ion-select-option>
+   </ion-select>
+  </ion-item>
+  <!-- <div class="error-container">
+    <div class="error-message"
+      *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid">
+      <span validator-error>Please Enter valid email address</span>
+    </div>
+  </div> -->
+  <p class="para">Enter Password</p>
+  <ion-item lines="none" fill="outline"   class="input-margin">
+    <ion-input  type="Password"  placeholder="Enter Password"></ion-input>
+  </ion-item>
+  <!-- <div class="error-container">
+    <div class="error-message"
+      *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid">
+      <span validator-error>Please Enter Valid Password</span>
+    </div> 
+  </div>-->
+  <div style="text-align: center;margin-top: 10%;padding-left: 15px; padding-right: 15px;">
+    <ion-button class="button-verify"  >Registred</ion-button>
+  </div>
+
+</ion-content>

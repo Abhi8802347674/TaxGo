@@ -1,0 +1,32 @@
+ion-content {
+    --background: rgb(247 255 255) ;
+  }
+  ion-content {--overflow: hidden}
+  .box {
+    border-color: #403E39;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 1px;
+    --background: white;
+    
+}
+.box-number {
+    border-color: #403E39;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 1px;
+    width: 22%;
+    --background: white;
+}
+.button-verify{
+    text-transform: capitalize;
+    --background: #067678;
+    display: block;
+    margin-top: 10%;
+}
+.error-message{
+    color: red;
+    font-size: 0.8rem;
+    margin-left: 15px;
+    margin-top: 5px;
+}

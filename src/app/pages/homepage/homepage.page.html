@@ -1,0 +1,29 @@
+
+<ion-content [fullscreen]="true" class="content-background header">
+  <ion-toolbar style="--background: transparent;">
+    <ion-buttons slot="end" style="color: white;">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> <div class="padding">
+      <p style="margin-bottom: -5px;"> Hi User !</p>
+      <p style="font-size: 0.7rem;"> Select from a range of a services</p>
+    </div></ion-title>
+  </ion-toolbar>
+ 
+<div *ngFor="let taxMenu of TaxmenoInfo ">
+  <ion-card > 
+    <ion-row style="padding:5px;font-family: agenda-regular;">
+      <ion-col size="10" >
+        <p><strong>{{taxMenu.ServicePageTitle}}</strong> </p>
+        <p>{{taxMenu.Description}}</p>
+      </ion-col>
+      <ion-col size="2">
+        <ion-icon name="document-text-outline" style="zoom:2.0;margin-top: 100%;"></ion-icon>
+      </ion-col>
+    </ion-row>
+      <ion-button class="button-light"  (click)="navigateToSignUp(taxMenu)" fill="clear">{{taxMenu.ServiceName}}
+        <ion-icon name="arrow-forward-outline" color="primary" ></ion-icon>
+      </ion-button>
+  </ion-card>
+</div>
+</ion-content>

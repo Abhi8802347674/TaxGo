@@ -1,0 +1,141 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background:#00b1b5;">
+      <ion-buttons slot="start" style="color: white;" (click)="back()">
+        <ion-back-button defaultHref=""></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end" style="color: transparent;">
+        <ion-back-button defaultHref=""></ion-back-button>
+      </ion-buttons>
+    <ion-title style="text-align: center;color:white">Update Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="updateProfileForm" >
+    
+    <p class="para">Enter FirstName</p>
+    <ion-item lines="none" fill="outline"  class="input-margin">
+      <ion-input  type="text"  formControlName="firstName" placeholder="Enter First Name"></ion-input>
+    </ion-item>
+    <div class="error-container">
+      <div class="error-message"
+        *ngIf="updateProfileForm.controls['firstName'].touched &&
+        updateProfileForm.controls['firstName'].dirty && updateProfileForm.controls['firstName'].invalid">
+        <span validator-error>First Name is required</span>
+      </div>
+    </div>
+    <p class="para">Enter Middel Name</p>
+    <ion-item lines="none" fill="outline"  class="input-margin">
+      <ion-input  type="text"  formControlName="middelName" placeholder="Middel Name"></ion-input>
+    </ion-item>
+    <!-- <div class="error-container">
+      <div class="error-message"
+        *ngIf="updateProfileForm.controls['middelName'].touched &&
+        updateProfileForm.controls['middelName'].dirty && updateProfileForm.controls['middelName'].invalid">
+        <span validator-error>Mobile No cannot be more than 10 characters long.</span>
+      </div>
+    </div> -->
+    <p class="para">Enter last Name</p>
+    <ion-item lines="none" fill="outline"  class="input-margin">
+      <ion-input  type="text"  formControlName="lastName" placeholder="Enter lastName"></ion-input>
+    </ion-item>
+    <div class="error-container">
+      <div class="error-message"
+        *ngIf="updateProfileForm.controls['lastName'].touched &&
+        updateProfileForm.controls['lastName'].dirty && updateProfileForm.controls['lastName'].invalid">
+        <span validator-error>Last Name is required.</span>
+      </div>
+    </div>
+    <p class="para">Enter Pan Number</p>
+    <ion-item lines="none" fill="outline"  class="input-margin">
+      <ion-input  type="text"  formControlName="pan" placeholder="Enter Pan No"></ion-input>
+    </ion-item>
+    <div class="error-container">
+      <div class="error-message"
+        *ngIf="updateProfileForm.controls['pan'].touched &&
+        updateProfileForm.controls['pan'].dirty && updateProfileForm.controls['pan'].invalid">
+        <span validator-error>Pan Number is required.</span>
+      </div>
+    </div>
+    <p class="para">Enter Aadhar Number</p>
+    <ion-item lines="none" fill="outline"  class="input-margin">
+      <ion-input  type="text"  formControlName="aadhar" placeholder="Enter Aadhar Number"></ion-input>
+    </ion-item>
+    <div class="error-container">
+      <div class="error-message"
+        *ngIf="updateProfileForm.controls['aadhar'].touched &&
+        updateProfileForm.controls['aadhar'].dirty && updateProfileForm.controls['aadhar'].invalid">
+        <span validator-error>Adhar Number is required.</span>
+      </div>
+    </div>
+    <p class="para">Enter Address1</p>
+    <ion-item lines="none" fill="outline"  class="input-margin">
+      <ion-textarea  type="text"  formControlName="address1" placeholder="Enter Address1"></ion-textarea >
+    </ion-item>
+    <div class="error-container">
+      <div class="error-message"
+        *ngIf="updateProfileForm.controls['address1'].touched &&
+        updateProfileForm.controls['address1'].dirty && updateProfileForm.controls['address1'].invalid">
+        <span validator-error>Address line 1 is required</span>
+      </div>
+    </div>
+    <p class="para">Enter Address2</p>
+    <ion-item lines="none" fill="outline"  class="input-margin">
+      <ion-textarea  type="text"  formControlName="address2" placeholder="Enter Address2 "></ion-textarea>
+    </ion-item>
+    <!-- <div class="error-container">
+      <div class="error-message"
+        *ngIf="updateProfileForm.controls['address2'].touched &&
+        updateProfileForm.controls['address2'].dirty && updateProfileForm.controls['address2'].invalid">
+        <span validator-error>Mobile No cannot be more than 10 characters long.</span>
+      </div>
+    </div> -->
+    <p class="para">Enter City</p>
+    <ion-item lines="none" fill="outline"  class="input-margin">
+      <ion-input  type="text"  formControlName="city" placeholder="Enter City"></ion-input>
+    </ion-item>
+    <div class="error-container">
+      <div class="error-message"
+        *ngIf="updateProfileForm.controls['city'].touched &&
+        updateProfileForm.controls['city'].dirty && updateProfileForm.controls['city'].invalid">
+        <span validator-error>City is required</span>
+      </div>
+    </div>
+    <p class="para">Enter State</p>
+    <ion-item lines="none" fill="outline"  class="input-margin">
+      <ion-input  type="text"  formControlName="state" placeholder="Enter state"></ion-input>
+    </ion-item>
+    <div class="error-container">
+      <div class="error-message"
+        *ngIf="updateProfileForm.controls['state'].touched &&
+        updateProfileForm.controls['state'].dirty && updateProfileForm.controls['state'].invalid">
+        <span validator-error>State is required.</span>
+      </div>
+    </div>
+    <p class="para">Enter Country</p>
+    <ion-item lines="none" fill="outline"  class="input-margin">
+      <ion-input  type="text"  formControlName="country" placeholder="Enter Country"></ion-input>
+    </ion-item>
+    <div class="error-container">
+      <div class="error-message"
+        *ngIf="updateProfileForm.controls['country'].touched &&
+        updateProfileForm.controls['country'].dirty && updateProfileForm.controls['country'].invalid">
+        <span validator-error>Country is required.</span>
+      </div>
+    </div>
+    <p class="para">Enter Pin code</p>
+    <ion-item lines="none" fill="outline"  class="input-margin">
+      <ion-input  type="text"  formControlName="pincode" placeholder="Enter Pin Code"></ion-input>
+    </ion-item>
+    <div class="error-container">
+      <div class="error-message"
+        *ngIf="updateProfileForm.controls['pincode'].touched &&
+        updateProfileForm.controls['pincode'].dirty && updateProfileForm.controls['pincode'].invalid">
+        <span validator-error>Pin code is required.</span>
+      </div>
+    </div>
+    <div style="text-align: center;margin-top: 10%;padding-left: 15px;padding-bottom: 15px; padding-right: 15px;">
+      <ion-button class="button-verify" [disabled]="!updateProfileForm.valid" (click)="updateProfile()">Update Profile</ion-button>
+    </div>
+  </form>
+</ion-content>
